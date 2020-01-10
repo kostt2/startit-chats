@@ -16,9 +16,18 @@ def ielasit_chatu():
   chata_rindas = []
   with open("chats.txt", "r", encoding="utf-8") as f:
     for rinda in f:
-      chata_rindas.apend(rinda)
+      chata_rindas.append(rinda)
 
   return jsonify({"chats":chata_rindas})
+
+  @app.route('/chats/suuti',methods =['POST'])
+  def suuti_zinju():
+    dati = request.json
+
+    with open("chats.txt", "a", newline="") as f:
+      f.write(dati["chats"]+ "\n")
+    return ielasit_chatu()
+    
 
 
 
