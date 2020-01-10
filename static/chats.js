@@ -1,10 +1,11 @@
-const ATJAUNOT = 5000;
+const ATJAUNOT = 1000;
 
 async function lasiChatu() {
     const atbilde = await fetch('/chats/lasi');
     const datuObjekts = await atbilde.json();
     radiChatuVienkarsi(datuObjekts);
     await new Promise(resolve => setTimeout(resolve, ATJAUNOT));
+    await lasiChatu();
 }
 
 function radiChatuVienkarsi(dati) {
