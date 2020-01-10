@@ -14,7 +14,7 @@ def health_check():
 @app.route('/chats/lasi')
 def ielasit_chatu():
   chata_rindas = []
-  with open("chats.txt", "r") as f:
+  with open("chats.txt", "r", encoding="utf-8") as f:
     for rinda in f:
       chata_rindas.apend(rinda)
 
