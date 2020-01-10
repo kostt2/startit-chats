@@ -11,7 +11,7 @@ def index_page():
 
 @app.route('/health')
 def health_check():
-  return "OK
+  return "OK"
 
 
 if __name__ == '__main__':
