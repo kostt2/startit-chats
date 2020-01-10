@@ -1,5 +1,6 @@
 from flask import Flask, render_template, json, jsonify, request
 
+
 app = Flask('app')
 
 
@@ -14,23 +15,20 @@ def health_check():
 @app.route('/chats/lasi')
 def ielasit_chatu():
   chata_rindas = []
-  with open("chats.txt", "r", encoding="utf-8") as f:
+  with open("chats.txt", "r", encoding="UTF-8") as f:
     for rinda in f:
       chata_rindas.append(rinda)
 
   return jsonify({"chats":chata_rindas})
 
-@app.route('/chats/suuti',methods =['POST'])
+@app.route('/chats/suuti', methods = ['POST'])
 def suuti_zinju():
   dati = request.json
 
   with open("chats.txt", "a", newline="") as f:
     f.write(dati["chats"] + "\n")
+
   return ielasit_chatu()
-    
-
-
-
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
