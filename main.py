@@ -20,13 +20,13 @@ def ielasit_chatu():
 
   return jsonify({"chats":chata_rindas})
 
-  @app.route('/chats/suuti',methods =['POST'])
-  def suuti_zinju():
-    dati = request.json
+@app.route('/chats/suuti',methods =['POST'])
+def suuti_zinju():
+  dati = request.json
 
-    with open("chats.txt", "a", newline="") as f:
-      f.write(dati["chats"]+ "\n")
-    return ielasit_chatu()
+  with open("chats.txt", "a", newline="") as f:
+    f.write(dati["chats"] + "\n")
+  return ielasit_chatu()
     
 
 
